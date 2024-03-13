@@ -1,0 +1,12 @@
+.profile-info {
+    display: flex;
+    width: 30%;
+}
+
+.profile-stats{
+    margin-left: 1em;
+}
+
+.profile-icon img {
+    height: 100px;
+}

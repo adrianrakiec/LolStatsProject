@@ -1,0 +1,15 @@
+.rang {
+	width: 30%;
+}
+
+.rang-info {
+	display: flex;
+}
+
+.rang-info img {
+	width: 100px;
+}
+
+.rang-points {
+    text-align: center;
+}
