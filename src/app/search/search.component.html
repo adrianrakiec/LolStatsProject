@@ -1,13 +1,13 @@
-<form>
+<!-- <form> -->
 
-  <select name="region" id="region">
-    <option value="EUNE">EUNE</option>
-    <option value="EUW">EUW</option>
-    <option value="NA">NA</option>
-  </select>
+<select #selectedRegion>
+  <option value="eun1">EUNE</option>
+  <option value="EUW">EUW</option>
+  <option value="NA">NA</option>
+</select>
 
-  <input />
+<input #input/>
 
-  <button>SEARCH</button>
+<button (click)="getData(selectedRegion.value, input.value); input.value=''">SEARCH</button>
 
-</form>
+<!-- </form> -->
