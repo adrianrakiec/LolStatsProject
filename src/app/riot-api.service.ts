@@ -10,7 +10,7 @@ import { Match } from './types/Match';
 })
 export class RiotApiService {
 	private readonly API_KEY: string =
-		'RGAPI-9735012b-7637-4e5a-8a7e-a99693e7fbd7';
+		'RGAPI-3d634f0c-2af8-4c77-9fcb-59ac63e3afa6';
 
 	constructor(private http: HttpClient) {}
 
@@ -21,10 +21,10 @@ export class RiotApiService {
 
 	getRankData(region: string, accountId: string) {
 		const apiUrl = `https://${region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${accountId}?api_key=${this.API_KEY}`;
-		return this.http.get<League>(apiUrl);
+		return this.http.get<League[]>(apiUrl);
 	}
 
-	getMatchesList(region: string, puuid: string) {
+	getMatchesList(region: string, puuid: string = '') {
 		const fullNameRegion = this.changeRegion(region);
 
 		const apiUrl = `https://${fullNameRegion}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=5&api_key=${this.API_KEY}`;
