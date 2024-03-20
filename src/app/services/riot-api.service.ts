@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Summoner } from './types/Summoner';
-import { League } from './types/League';
-import { MatchesList } from './types/MatchesList';
-import { Match } from './types/Match';
+import { Summoner } from '../types/Summoner';
+import { League } from '../types/League';
+import { MatchesList } from '../types/MatchesList';
+import { Match } from '../types/Match';
 
 @Injectable({
 	providedIn: 'root',
