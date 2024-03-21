@@ -1,16 +1,25 @@
 <section class="rang">
-    <h2 class="rang-title">Ranked Solo/Duo</h2>
+    <h2 class="rang-title"><ng-content></ng-content></h2>
     <div class="rang-info">
         <div class="rang-points">
-            <img
-                src="https://blogwikinerds.files.wordpress.com/2015/01/division_3_silver_tier_league_of_legends_emblem_by_narishm-d6u3akz.png" />
-            <p>Silver 1</p>
-            <p>17LP</p>
+
+            @if (type === 'SOLO') {
+            <img [src]="selectRankIcon(leagueInfo?.[0]?.tier)" />
+            <p>{{leagueInfo?.[0]?.tier}} {{leagueInfo?.[0]?.rank}}</p>
+            <p>{{leagueInfo?.[0]?.leaguePoints}} LP</p>
+            }
+            @else if (type === 'FLEX') {
+            <img [src]="selectRankIcon(leagueInfo?.[1]?.tier)" />
+            <p>{{leagueInfo?.[1]?.tier}} {{leagueInfo?.[1]?.rank}}</p>
+            <p>{{leagueInfo?.[1]?.leaguePoints}} LP</p>
+            }
+
+
         </div>
 
         <div class="rang-wins">
-            <p>60W 40L</p>
-            <p>Winrate: 60%</p>
+            <p>TODO</p>
+            <p>Winrate: TODO</p>
         </div>
     </div>
 

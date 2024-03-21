@@ -2,12 +2,12 @@
 
     <div class="profile-icon">
         <img
-            src="https://play-lh.googleusercontent.com/8wE54Qacd1KYX5hbE5ixvOWcPdVTqJqgwlVJISZLRR4bQzt8l9Aw5XzNd7rrNX4050Af=w240-h480-rw" />
+            [src]="'https://ddragon.leagueoflegends.com/cdn/14.6.1/img/profileicon/' + profileInfo?.profileIconId + '.png'" />
     </div>
 
     <div class="profile-stats">
-        <h2>NickName</h2>
-        <p>Level: 200</p>
+        <h2>{{profileInfo?.name}}</h2>
+        <p>{{profileInfo?.summonerLevel}}</p>
     </div>
 
 </section>
