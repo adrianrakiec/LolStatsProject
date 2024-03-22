@@ -3,23 +3,36 @@
     <div class="rang-info">
         <div class="rang-points">
 
-            @if (type === 'SOLO') {
-            <img [src]="selectRankIcon(leagueInfo?.[0]?.tier)" />
-            <p>{{leagueInfo?.[0]?.tier}} {{leagueInfo?.[0]?.rank}}</p>
-            <p>{{leagueInfo?.[0]?.leaguePoints}} LP</p>
+            @if (!leagueInfo) {
+                <p>Brak informacji</p>
             }
-            @else if (type === 'FLEX') {
-            <img [src]="selectRankIcon(leagueInfo?.[1]?.tier)" />
-            <p>{{leagueInfo?.[1]?.tier}} {{leagueInfo?.[1]?.rank}}</p>
-            <p>{{leagueInfo?.[1]?.leaguePoints}} LP</p>
+            
+            @else if (type === 'SOLO' && leagueInfo[0]) {
+            <img [src]="selectRankIcon(leagueInfo[0].tier)" />
+            <p>{{leagueInfo[0].tier}} {{leagueInfo[0].rank}}</p>
+            <p>{{leagueInfo[0].leaguePoints}} LP</p>
+
+            <div class="rang-wins">
+                <p>{{leagueInfo[0].wins}}W {{leagueInfo[0].losses}}L</p>
+                <p>Winrate: {{((leagueInfo[0].wins / (leagueInfo[0].wins + leagueInfo[0].losses)) * 100).toFixed()}}%</p>
+            </div>
+            }
+            @else if (type === 'FLEX' && leagueInfo[1]) {
+            <img [src]="selectRankIcon(leagueInfo[1].tier)" />
+            <p>{{leagueInfo[1].tier}} {{leagueInfo[1].rank}}</p>
+            <p>{{leagueInfo[1].leaguePoints}} LP</p>
+
+            <div class="rang-wins">
+                <p>{{leagueInfo[1].wins}}W {{leagueInfo[1].losses}}L</p>
+                <p>Winrate: {{((leagueInfo[1].wins / (leagueInfo[1].wins + leagueInfo[1].losses)) * 100).toFixed()}}%</p>
+            </div>
+            }
+
+            @else {
+                <p>Brak danych :(</p>
             }
 
 
-        </div>
-
-        <div class="rang-wins">
-            <p>TODO</p>
-            <p>Winrate: TODO</p>
         </div>
     </div>
 

@@ -8,7 +8,7 @@ export const routes: Routes = [
         component: MainPageComponent
     },
     {
-        path: 'profile',
+        path: 'profile/:name',
         component: ProfilePageComponent
     }
 ];

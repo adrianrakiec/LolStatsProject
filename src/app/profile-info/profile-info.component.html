@@ -1,13 +1,20 @@
 <section class="profile-info">
 
-    <div class="profile-icon">
-        <img
-            [src]="'https://ddragon.leagueoflegends.com/cdn/14.6.1/img/profileicon/' + profileInfo?.profileIconId + '.png'" />
-    </div>
+    @if (profileInfo) {
+        <div class="profile-icon">
+            <img
+                [src]="'https://ddragon.leagueoflegends.com/cdn/14.6.1/img/profileicon/' + profileInfo.profileIconId + '.png'" 
+                [alt]="profileInfo.name"/>
+        </div>
+    
+        <div class="profile-stats">
+            <h2>{{profileInfo.name}}</h2>
+            <p>{{profileInfo.summonerLevel}}</p>
+        </div>
+    }
 
-    <div class="profile-stats">
-        <h2>{{profileInfo?.name}}</h2>
-        <p>{{profileInfo?.summonerLevel}}</p>
-    </div>
+    @else {
+        <p>Brak danych o użytkowniku</p>
+    }
 
 </section>

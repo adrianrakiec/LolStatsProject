@@ -6,6 +6,7 @@ import { MatchesList } from '../types/MatchesList';
 import { CommonModule } from '@angular/common';
 import { ProfileDataService } from '../services/profile-data.service';
 import { MatchHistoryDataService } from '../services/match-history-data.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-search',
@@ -18,13 +19,17 @@ export class SearchComponent {
 	constructor(
 		private riotService: RiotApiService,
 		private profileDataService: ProfileDataService,
-		private matchHistoryService: MatchHistoryDataService
+		private matchHistoryService: MatchHistoryDataService,
+		private router: Router
 	) {}
 
 	private profileData: Summoner | null = null;
 	private matchesList: MatchesList[] | null = null;
+	isLoading: boolean = false;
 
 	getData(region: string, username: string) {
+		this.isLoading = true;
+		
 		this.riotService
 			.getProfileData(region, username)
 			.pipe(
@@ -49,6 +54,8 @@ export class SearchComponent {
 			)
 			.subscribe(matches => {
 				this.matchHistoryService.setMatches(matches);
+				this.router.navigate([`/profile/${this.profileData?.name}`]);
+				this.isLoading = false;
 			});
 	}
 }

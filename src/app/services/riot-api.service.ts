@@ -10,7 +10,7 @@ import { Match } from '../types/Match';
 })
 export class RiotApiService {
 	private readonly API_KEY: string =
-		'RGAPI-3d634f0c-2af8-4c77-9fcb-59ac63e3afa6';
+		'<API_KEY>';
 
 	constructor(private http: HttpClient) {}
 
