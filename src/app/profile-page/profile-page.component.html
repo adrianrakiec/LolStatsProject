@@ -1,4 +1,4 @@
 <app-search />
-<app-profile-info />
-<app-rang />
-<app-rang />
+<app-profile-info [profileInfo]="profileInfoService.summonerData$ | async"/>
+<app-rang [leagueInfo]="profileInfoService.leagueData$ | async">Ranked Solo/Duo</app-rang>
+<app-rang [type]="'FLEX'" [leagueInfo]="profileInfoService.leagueData$ | async">Ranked Flex</app-rang>

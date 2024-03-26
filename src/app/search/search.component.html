@@ -1,13 +1,15 @@
-<!-- <form> -->
+<section class="search-bar">
+  <select #selectedRegion>
+    <option value="eun1">EUNE</option>
+    <option value="euw1">EUW</option>
+    <option value="na1">NA</option>
+  </select>
+  
+  <input #input (keydown.enter)="getData(selectedRegion.value, input.value); input.value=''"/>
+  
+  <button (click)="getData(selectedRegion.value, input.value); input.value=''">SEARCH</button>
 
-<select #selectedRegion>
-  <option value="eun1">EUNE</option>
-  <option value="euw1">EUW</option>
-  <option value="na1">NA</option>
-</select>
-
-<input #input/>
-
-<button (click)="getData(selectedRegion.value, input.value); input.value=''">SEARCH</button>
-
-<!-- </form> -->
+  @if (isLoading) {
+    <p>Ładowanie danych...</p>
+  }
+</section>
