@@ -1,0 +1,12 @@
+<section class="history">
+    @if(matches) {
+    @for (match of matches; track match.metadata.matchId) {
+    <div class="game">
+        <app-game [match]="match" />
+    </div>
+    }
+    }
+    @else {
+    <h1>Brak ostatnich meczów</h1>
+    }
+</section>

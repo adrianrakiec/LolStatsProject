@@ -10,7 +10,7 @@ import { Match } from '../types/Match';
 })
 export class RiotApiService {
 	private readonly API_KEY: string =
-		'RGAPI-83556743-699c-4106-95d4-9ca348cea1cd';
+		'<API_KEY>';
 
 	constructor(private http: HttpClient) {}
 
@@ -27,7 +27,7 @@ export class RiotApiService {
 	getMatchesList(region: string, puuid: string = '') {
 		const fullNameRegion = this.changeRegion(region);
 
-		const apiUrl = `https://${fullNameRegion}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=3&api_key=${this.API_KEY}`;
+		const apiUrl = `https://${fullNameRegion}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=5&api_key=${this.API_KEY}`;
 		return this.http.get<MatchesList[]>(apiUrl);
 	}
 
