@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Match } from '../types/Match';
 import { MatchHistoryDataService } from '../services/match-history-data.service';
+import { RiotApiService } from '../services/riot-api.service';
 
 @Component({
 	selector: 'app-game',
@@ -14,11 +15,19 @@ export class GameComponent implements OnInit {
 
 	playerPUUID: string = this.matchHistoryService.playerPUUID;
 	playerIndex: number = -1;
+	championIcon: string = '';
+	queueType: string | null = '';
+	summonerSpells: string[] = [];
 
-	constructor(public matchHistoryService: MatchHistoryDataService) {}
+	constructor(
+		public matchHistoryService: MatchHistoryDataService,
+		private riotApiService: RiotApiService
+	) {}
 
 	ngOnInit(): void {
 		this.getPlayerIndex();
+		this.getQueueType();
+		this.getSummonerSpells();
 	}
 
 	getGameDuration() {
@@ -29,10 +38,10 @@ export class GameComponent implements OnInit {
 			const minutes = Math.floor(rest / 60);
 			const seconds = rest % 60;
 
-			return `${hours ? hours + 'g' : ''} ${minutes}m ${seconds}s`;
+			return `${hours ? hours + 'h' : ''} ${minutes}m ${seconds}s`;
 		}
 
-		return 'Brak informacji';
+		return 'No information';
 	}
 
 	private getPlayerIndex() {
@@ -40,6 +49,41 @@ export class GameComponent implements OnInit {
 			this.playerIndex = this.match.metadata.participants.findIndex(
 				puuid => puuid === this.playerPUUID
 			);
+
+			this.championIcon = `https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/${
+				this.match?.info.participants[this.playerIndex].championName
+			}.png`;
 		}
+	}
+
+	private getQueueType() {
+		if (this.riotApiService.queueTypes && this.match?.info) {
+			const queue = this.riotApiService.queueTypes.find(
+				type => type.queueId === this.match?.info.queueId
+			);
+			if (queue?.description) this.queueType = queue?.description;
+		}
+	}
+
+	private getSummonerSpells() {
+		if (this.riotApiService.summonerSpells && this.match?.info) {
+			const summonerSpell1 =
+				this.match.info.participants[this.playerIndex].summoner1Id.toString();
+			const summonerSpell2 =
+				this.match.info.participants[this.playerIndex].summoner2Id.toString();
+
+			this.summonerSpells.push(
+				this.selectSpellById(summonerSpell1),
+				this.selectSpellById(summonerSpell2)
+			);
+		}
+	}
+
+	private selectSpellById(id: string): string {
+		const spell = this.riotApiService.summonerSpells.find(
+			spell => spell.key === id
+		);
+
+		return spell ? spell.id : '';
 	}
 }

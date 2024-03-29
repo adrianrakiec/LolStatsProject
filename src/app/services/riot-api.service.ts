@@ -4,15 +4,25 @@ import { Summoner } from '../types/Summoner';
 import { League } from '../types/League';
 import { MatchesList } from '../types/MatchesList';
 import { Match } from '../types/Match';
+import { toArray } from 'rxjs';
+import { Queue } from '../types/Queue';
+import { SpellsData } from '../types/SpellsData';
+import { SummonerSpell } from '../types/SummonerSpell';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class RiotApiService {
 	private readonly API_KEY: string =
-		'<API_KEY>';
+		'RGAPI-2d76b08e-f012-4361-9d18-de48089dbb94';
 
-	constructor(private http: HttpClient) {}
+	queueTypes: Queue[] = [];
+	summonerSpells: SummonerSpell[] = [];
+
+	constructor(private http: HttpClient) {
+		this.setQueueType();
+		this.setSummonerSpells();
+	}
 
 	getProfileData(region: string, username: string) {
 		const apiUrl = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}?api_key=${this.API_KEY}`;
@@ -42,5 +52,31 @@ export class RiotApiService {
 
 	changeRegion(region: string) {
 		return region === 'na1' ? 'americas' : 'europe';
+	}
+
+	private setQueueType() {
+		const url: string =
+			'https://static.developer.riotgames.com/docs/lol/queues.json';
+
+		this.http
+			.get<Queue>(url)
+			.pipe(toArray())
+			.subscribe(data => {
+				this.queueTypes = data.flat();
+			});
+	}
+
+	private setSummonerSpells() {
+		const url: string =
+			'https://ddragon.leagueoflegends.com/cdn/14.6.1/data/en_US/summoner.json';
+
+		this.http
+			.get<SpellsData>(url)
+			.pipe(toArray())
+			.subscribe(data => {
+				for (const spell of Object.values(data[0].data)) {
+					this.summonerSpells.push(spell as SummonerSpell);
+				}
+			});
 	}
 }
