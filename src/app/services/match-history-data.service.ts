@@ -28,7 +28,6 @@ export class MatchHistoryDataService {
 
 	setMatches(matches: Match[]) {
 		this.matchesSubject.next(matches);
-		console.log(this.getMostPlayedChamp(matches));
 	}
 
 	getMostPlayedChamp(matches: Match[]) {

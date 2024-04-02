@@ -1,0 +1,25 @@
+@if(match) {
+<section [class]="match.info.participants[playerIndex].win ? 'game win' : 'game lose'">
+    <img [src]="championIcon" class="champ-icon" />
+    <div class="summoner-spells">
+        <img [src]="'https://ddragon.leagueoflegends.com/cdn/14.6.1/img/spell/'+summonerSpells[0]+'.png'"
+            [alt]="summonerSpells[0]">
+        <img [src]="'https://ddragon.leagueoflegends.com/cdn/14.6.1/img/spell/'+summonerSpells[1]+'.png'"
+            [alt]="summonerSpells[1]">
+    </div>
+    <div class="main-info">
+        <h2>{{queueType}}</h2>
+        <h3>{{match.info.participants[playerIndex].kills}}/{{match.info.participants[playerIndex].deaths}}/{{match.info.participants[playerIndex].assists}}
+        </h3>
+    </div>
+    <div class="more-info">
+        <h2>{{match.info.participants[playerIndex].win ? "Victory" : "Defeat"}}</h2>
+        <h3>{{getGameDuration()}}</h3>
+    </div>
+</section>
+}
+@else {
+<section class="game">
+    <h2>No information</h2>
+</section>
+}
