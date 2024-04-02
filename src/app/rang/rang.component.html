@@ -4,32 +4,41 @@
         <div class="rang-points">
 
             @if (!leagueInfo) {
-                <p>No information</p>
+            <p>No information</p>
             }
-            
+
             @else if (type === 'SOLO' && leagueInfo[0]) {
-            <img [src]="selectRankIcon(leagueInfo[0].tier)" />
-            <p>{{leagueInfo[0].tier}} {{leagueInfo[0].rank}}</p>
-            <p>{{leagueInfo[0].leaguePoints}} LP</p>
+            <div class="league">
+                <img [src]="selectRankIcon(leagueInfo[0].tier)" />
+                <p>{{leagueInfo[0].tier}} {{leagueInfo[0].rank}}</p>
+                <p>{{leagueInfo[0].leaguePoints}} LP</p>
+            </div>
 
             <div class="rang-wins">
                 <p>{{leagueInfo[0].wins}}W {{leagueInfo[0].losses}}L</p>
-                <p>Winrate: {{((leagueInfo[0].wins / (leagueInfo[0].wins + leagueInfo[0].losses)) * 100).toFixed()}}%</p>
+                <p>Winrate: {{((leagueInfo[0].wins / (leagueInfo[0].wins + leagueInfo[0].losses)) * 100).toFixed()}}%
+                </p>
             </div>
             }
             @else if (type === 'FLEX' && leagueInfo[1]) {
-            <img [src]="selectRankIcon(leagueInfo[1].tier)" />
-            <p>{{leagueInfo[1].tier}} {{leagueInfo[1].rank}}</p>
-            <p>{{leagueInfo[1].leaguePoints}} LP</p>
+            <div class="league">
+                <img [src]="selectRankIcon(leagueInfo[1].tier)" />
+                <p>{{leagueInfo[1].tier}} {{leagueInfo[1].rank}}</p>
+                <p>{{leagueInfo[1].leaguePoints}} LP</p>
+            </div>
 
             <div class="rang-wins">
                 <p>{{leagueInfo[1].wins}}W {{leagueInfo[1].losses}}L</p>
-                <p>Winrate: {{((leagueInfo[1].wins / (leagueInfo[1].wins + leagueInfo[1].losses)) * 100).toFixed()}}%</p>
+                <p>Winrate: {{((leagueInfo[1].wins / (leagueInfo[1].wins + leagueInfo[1].losses)) * 100).toFixed()}}%
+                </p>
             </div>
             }
 
             @else {
+            <div class="unranked-info">
                 <p>Unranked</p>
+                <img src="../../assets/unranked.png" />
+            </div>
             }
 
 

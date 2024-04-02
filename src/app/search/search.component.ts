@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 	standalone: true,
 	templateUrl: './search.component.html',
 	imports: [CommonModule],
-	styles: ``,
+	styleUrls: ['./search.component.css'],
 })
 export class SearchComponent {
 	constructor(

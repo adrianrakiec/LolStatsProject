@@ -49,11 +49,11 @@
 }
 
 .lose {
-	background-color: #59343b;
-	color: #ff8798;
+	background-color: var(--bgc-game-lose);
+	color: var(--font-color-game-lose);
 }
 
 .win {
-	background-color: #28344e;
-	color: #6899ff;
+	background-color: var(--bgc-game-win);
+	color: var(--font-color-game-win);
 }

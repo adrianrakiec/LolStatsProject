@@ -13,7 +13,7 @@ import { MatchesHistoryComponent } from '../matches-history/matches-history.comp
 	standalone: true,
 	imports: [SearchComponent, ProfileInfoComponent, RangComponent, CommonModule, GameComponent, MatchesHistoryComponent],
 	templateUrl: './profile-page.component.html',
-	styles: ``,
+	styleUrls: ['./profile-page.component.css'],
 })
 export class ProfilePageComponent {
 	constructor(public profileInfoService: ProfileDataService, public matchHistoryService: MatchHistoryDataService) {}

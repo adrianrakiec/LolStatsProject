@@ -7,6 +7,6 @@ import { SearchComponent } from '../search/search.component';
 	standalone: true,
 	imports: [TitleComponent, SearchComponent],
 	templateUrl: './main-page.component.html',
-	styles: ``,
+	styleUrls: ['./main-page.component.css'],
 })
 export class MainPageComponent {}

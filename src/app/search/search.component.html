@@ -1,15 +1,21 @@
 <section class="search-bar">
-  <select #selectedRegion>
-    <option value="eun1">EUNE</option>
-    <option value="euw1">EUW</option>
-    <option value="na1">NA</option>
-  </select>
-  
-  <input #input (keydown.enter)="getData(selectedRegion.value, input.value); input.value=''"/>
-  
-  <button (click)="getData(selectedRegion.value, input.value); input.value=''">SEARCH</button>
+  <div class="select-region">
+    <select #selectedRegion>
+      <option value="eun1">EUNE</option>
+      <option value="euw1">EUW</option>
+      <option value="na1">NA</option>
+    </select>
+  </div>
+
+  <span class="input-container">
+    <span class="icon"><i class="fa-solid fa-link"></i></span>
+    <input #input (keydown.enter)="getData(selectedRegion.value, input.value); input.value=''" class="nick-input"
+      placeholder="Enter nickname" />
+  </span>
+
+  <button (click)="getData(selectedRegion.value, input.value); input.value=''" class="search-btn">SEARCH</button>
 
   @if (isLoading) {
-    <p>Ładowanie danych...</p>
+  <p class="loading-info">Searching...</p>
   }
 </section>

@@ -1,6 +1,7 @@
 .profile-info {
     display: flex;
     width: 30%;
+    align-items: center;
 }
 
 .profile-stats{
@@ -8,5 +9,5 @@
 }
 
 .profile-icon img {
-    height: 100px;
+    width: 8rem;
 }

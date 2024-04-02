@@ -14,7 +14,7 @@ import { SummonerSpell } from '../types/SummonerSpell';
 })
 export class RiotApiService {
 	private readonly API_KEY: string =
-		'RGAPI-2d76b08e-f012-4361-9d18-de48089dbb94';
+		'RGAPI-072ac3c4-700c-4df8-8631-3b766587d18d';
 
 	queueTypes: Queue[] = [];
 	summonerSpells: SummonerSpell[] = [];
