@@ -66,3 +66,32 @@
 	font-size: 1.7rem;
 	color: var(--extra-color);
 }
+
+@media (max-width:600px) {
+	.search-bar {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+	}
+
+	.nick-input {
+		width: 70%;
+	}
+
+	.icon {
+		display: none;
+	}
+
+	.search-btn {
+		width: 40%;
+		align-self: center;
+	}
+
+	.select-region::before {
+		content : '';
+	}
+
+	.select-region select {
+		font-size: 1rem;
+	}
+}
