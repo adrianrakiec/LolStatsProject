@@ -15,7 +15,11 @@
 
   <button (click)="getData(selectedRegion.value, input.value); input.value=''" class="search-btn">SEARCH</button>
 
-  @if (isLoading) {
+  @if (loadingService.isLoading$ | async) {
   <p class="loading-info">Searching...</p>
+  }
+
+  @if (loadingService.isError$ | async) {
+  <p class="error-info">No player with the specified name!</p>
   }
 </section>

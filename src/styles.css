@@ -16,8 +16,17 @@
 	--font-color-game-lose: #ff8798;
 	--main-font-color: #fff;
 	--extra-color: #c9ced6;
-	--search-btn-bgc-color: #144EE3;
-	--title-gradient: linear-gradient(0.25turn, #144EE3, #144EE3, #EB568E, #A353AA, #144EE3, #144EE3);
+	--search-btn-bgc-color: #144ee3;
+	--title-gradient: linear-gradient(
+		0.25turn,
+		#144ee3,
+		#144ee3,
+		#eb568e,
+		#a353aa,
+		#144ee3,
+		#144ee3
+	);
+	--error-msg-color: rgb(224, 44, 44);
 }
 
 body {

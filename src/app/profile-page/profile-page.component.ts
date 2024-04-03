@@ -7,14 +7,26 @@ import { MatchHistoryDataService } from '../services/match-history-data.service'
 import { CommonModule } from '@angular/common';
 import { GameComponent } from '../game/game.component';
 import { MatchesHistoryComponent } from '../matches-history/matches-history.component';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
 	selector: 'app-profile-page',
 	standalone: true,
-	imports: [SearchComponent, ProfileInfoComponent, RangComponent, CommonModule, GameComponent, MatchesHistoryComponent],
+	imports: [
+		SearchComponent,
+		ProfileInfoComponent,
+		RangComponent,
+		CommonModule,
+		GameComponent,
+		MatchesHistoryComponent,
+	],
 	templateUrl: './profile-page.component.html',
 	styleUrls: ['./profile-page.component.css'],
 })
 export class ProfilePageComponent {
-	constructor(public profileInfoService: ProfileDataService, public matchHistoryService: MatchHistoryDataService) {}
+	constructor(
+		public profileInfoService: ProfileDataService,
+		public matchHistoryService: MatchHistoryDataService,
+		public loadingService: LoadingService
+	) {}
 }
