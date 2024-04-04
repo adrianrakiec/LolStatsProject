@@ -9,11 +9,11 @@
 
   <span class="input-container">
     <span class="icon"><i class="fa-solid fa-link"></i></span>
-    <input #input (keydown.enter)="getData(selectedRegion.value, input.value); input.value=''" class="nick-input"
+    <input #input (keydown.enter)="getData(selectedRegion.value, input.value); input.value=''; allowNavigation()" class="nick-input"
       placeholder="Enter nickname" />
   </span>
 
-  <button (click)="getData(selectedRegion.value, input.value); input.value=''" class="search-btn">SEARCH</button>
+  <button (click)="getData(selectedRegion.value, input.value); input.value=''; allowNavigation()" class="search-btn">SEARCH</button>
 
   @if (loadingService.isLoading$ | async) {
   <p class="loading-info">Searching...</p>

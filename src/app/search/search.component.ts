@@ -8,6 +8,7 @@ import { ProfileDataService } from '../services/profile-data.service';
 import { MatchHistoryDataService } from '../services/match-history-data.service';
 import { Router } from '@angular/router';
 import { LoadingService } from '../services/loading.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
 	selector: 'app-search',
@@ -22,7 +23,8 @@ export class SearchComponent {
 		private profileDataService: ProfileDataService,
 		private matchHistoryService: MatchHistoryDataService,
 		public loadingService: LoadingService,
-		private router: Router
+		private router: Router,
+		private authService: AuthService
 	) {}
 
 	private profileData: Summoner | null = null;
@@ -59,5 +61,9 @@ export class SearchComponent {
 				this.router.navigate([`/profile/${this.profileData?.name}`]);
 				this.isLoading = false;
 			});
+	}
+
+	allowNavigation() {
+		this.authService.setBtnClicked(true);
 	}
 }
