@@ -12,20 +12,19 @@
 
 .champ-icon {
 	align-self: center;
-	width: 12%;
+	width: 10%;
 }
 
 .summoner-spells {
 	display: flex;
 	flex-direction: column;
 	margin-left: 1em;
-	gap: 0.6em;
 	width: 10%;
 	justify-content: space-around;
 }
 
 .summoner-spells img {
-	width: 6vw;
+	width: 50%;
 }
 
 .main-info {
@@ -69,9 +68,3 @@
 		font-size: 0.5rem;
 	}
 }	
-
-@media (max-width: 720px) {
-	.summoner-spells img {
-		width: 7vw;
-	}
-}
