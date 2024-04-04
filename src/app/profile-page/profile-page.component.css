@@ -1,0 +1,26 @@
+.search-bar {
+	text-align: center;
+}
+
+.profile {
+	display: flex;
+	justify-content: space-between;
+	margin: 1em auto;
+	padding: 1.5em;
+    max-width: 1000px;
+    width: 95%;
+	font-size: 1.1rem;
+}
+
+
+
+
+@media (max-width: 900px) {
+	.profile {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap:2em;
+		font-size: 1.2rem;
+	}
+}

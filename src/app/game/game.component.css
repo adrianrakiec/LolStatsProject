@@ -11,8 +11,8 @@
 }
 
 .champ-icon {
-	height: 60%;
 	align-self: center;
+	width: 12%;
 }
 
 .summoner-spells {
@@ -20,6 +20,12 @@
 	flex-direction: column;
 	margin-left: 1em;
 	gap: 0.6em;
+	width: 10%;
+	justify-content: space-around;
+}
+
+.summoner-spells img {
+	width: 6vw;
 }
 
 .main-info {
@@ -49,11 +55,23 @@
 }
 
 .lose {
-	background-color: #59343b;
-	color: #ff8798;
+	background-color: var(--bgc-game-lose);
+	color: var(--font-color-game-lose);
 }
 
 .win {
-	background-color: #28344e;
-	color: #6899ff;
+	background-color: var(--bgc-game-win);
+	color: var(--font-color-game-win);
+}
+
+@media (max-width: 440px) {
+	.game {
+		font-size: 0.5rem;
+	}
+}	
+
+@media (max-width: 720px) {
+	.summoner-spells img {
+		width: 7vw;
+	}
 }

@@ -1,15 +1,39 @@
 .rang {
-	width: 30%;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .rang-info {
 	display: flex;
+	margin: 0 auto;
 }
 
 .rang-info img {
-	width: 100px;
+	width: 5em;
 }
 
 .rang-points {
     text-align: center;
+	display: flex;
+	gap: 1em;
+}
+
+.rang-wins {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	justify-content: center;
+}
+
+.unranked-info {
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.league {
+	font-size: 0.8rem;
 }
