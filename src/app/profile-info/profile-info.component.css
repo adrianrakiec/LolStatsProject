@@ -1,13 +1,17 @@
 .profile-info {
-    display: flex;
-    width: 30%;
-    align-items: center;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
 }
 
-.profile-stats{
-    margin-left: 1em;
+.profile-stats {
+	flex: 2;
+}
+
+.profile-icon {
+	flex: 1;
 }
 
 .profile-icon img {
-    width: 8rem;
+	width: 100%;
 }

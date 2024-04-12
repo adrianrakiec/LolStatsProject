@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileDataService } from '../services/profile-data.service';
 import { MatchHistoryDataService } from '../services/match-history-data.service';
 import { Router } from '@angular/router';
+import { LoadingService } from '../services/loading.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
 	selector: 'app-search',
@@ -20,7 +22,9 @@ export class SearchComponent {
 		private riotService: RiotApiService,
 		private profileDataService: ProfileDataService,
 		private matchHistoryService: MatchHistoryDataService,
-		private router: Router
+		public loadingService: LoadingService,
+		private router: Router,
+		private authService: AuthService
 	) {}
 
 	private profileData: Summoner | null = null;
@@ -29,7 +33,7 @@ export class SearchComponent {
 
 	getData(region: string, username: string) {
 		this.isLoading = true;
-		
+
 		this.riotService
 			.getProfileData(region, username)
 			.pipe(
@@ -57,5 +61,9 @@ export class SearchComponent {
 				this.router.navigate([`/profile/${this.profileData?.name}`]);
 				this.isLoading = false;
 			});
+	}
+
+	allowNavigation() {
+		this.authService.setBtnClicked(true);
 	}
 }
