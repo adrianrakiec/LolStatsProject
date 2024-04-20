@@ -1,0 +1,20 @@
+<section class="profile-info">
+
+    @if (profileInfo) {
+        <div class="profile-icon">
+            <img
+                [src]="'https://ddragon.leagueoflegends.com/cdn/14.6.1/img/profileicon/' + profileInfo.profileIconId + '.png'" 
+                [alt]="profileInfo.name"/>
+        </div>
+    
+        <div class="profile-stats">
+            <h2>{{profileInfo.name}}</h2>
+            <p>Level: {{profileInfo.summonerLevel}}</p>
+        </div>
+    }
+
+    @else {
+        <p>No user information</p>
+    }
+
+</section>

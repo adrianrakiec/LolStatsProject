@@ -1,27 +1,34 @@
-# LolStats
+# LolStats 🎮
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
+This project is my first encounter with Angular, developed during my month-long internship under the supervision of a mentor. It's a web application that allows users to check their rank in the game League of Legends and view their last 5 games. To create it, I used [Riot Api](https://developer.riotgames.com/apis).
 
-## Development server
+## Installing and Runnin 🖥️
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Clone this repository:  `https://github.com/adrianrakiec/LolStatsProject.git`
+2. Navigate to the project directory: `cd LolStatsProject`
+3. In `riot-api.service.ts` add your api key from Riot
+4. Download dependencies using: `npm i`
+5. Run the program: `ng serve --open` 
 
-## Code scaffolding
+#
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![image](https://github.com/adrianrakiec/LolStatsProject/assets/163138707/2d4fb7cc-57eb-42e8-b794-d926a83df198)
+#
 
-## Build
+![image](https://github.com/adrianrakiec/LolStatsProject/assets/163138707/5e2f90ea-fd18-4a63-adaa-b1e48230de32)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Summary
+During this project, I embarked on a journey to learn Angular from scratch. Here's a brief overview of my progress:
+* Starting from Zero: I began with little to no knowledge of Angular and gradually immersed myself in the framework.
+* Utilizing HTTP Client: I learned how to make HTTP requests using Angular's built-in HTTP Client module, enabling communication with external APIs.
+* Implementing Auth Guard: I gained experience in implementing authentication guards to restrict access to certain routes based on the user's authentication status, enhancing the security of the application.
+* Understanding Angular Application Architecture: Throughout the project, I delved into the fundamental architecture of Angular applications, including components, services, modules, and routing.
+* Learning Git Best Practices: I familiarized myself with Git version control and adopted best practices for collaboration, including branching strategies, commit conventions, and pull request workflows.
+* Engaging in Code Reviews: I actively participated in code reviews. This process helped me improve my code quality, understand common pitfalls, and learn from others' approaches.
+  
+This project served as an invaluable learning experience, allowing me to gradually build my skills in Angular development, software engineering best practices, and collaborative teamwork.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## License🔖 
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project is licensed under the MIT License.

@@ -1,0 +1,13 @@
+<div class="search-bar">
+    <app-search />
+</div>
+<section class="profile">
+    <span class="profile-info">
+        <app-profile-info [profileInfo]="profileInfoService.summonerData$ | async" />
+    </span>
+    <span class="ranks">
+        <app-rang [leagueInfo]="profileInfoService.leagueData$ | async">Ranked Solo/Duo</app-rang>
+        <app-rang [type]="'FLEX'" [leagueInfo]="profileInfoService.leagueData$ | async">Ranked Flex</app-rang>
+    </span>
+</section>
+<app-matches-history [matches]="matchHistoryService.matchHistory$ | async" />

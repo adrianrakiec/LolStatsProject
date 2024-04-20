@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--bgc-dark-theme: #0b101b;
+	--bgc-game-win: #28344e;
+	--bgc-game-lose: #59343b;
+	--bgc-search-bar: #181e29;
+	--font-color-game-win: #6899ff;
+	--font-color-game-lose: #ff8798;
+	--main-font-color: #fff;
+	--extra-color: #c9ced6;
+	--search-btn-bgc-color: #144ee3;
+	--title-gradient: linear-gradient(
+		0.25turn,
+		#144ee3,
+		#144ee3,
+		#eb568e,
+		#a353aa,
+		#144ee3,
+		#144ee3
+	);
+	--error-msg-color: rgb(224, 44, 44);
+}
+
+body {
+	background-color: var(--bgc-dark-theme);
+	color: var(--main-font-color);
+	font-family: sans-serif;
+}

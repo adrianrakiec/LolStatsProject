@@ -1,0 +1,6 @@
+.title {
+    font-size: 3rem;
+    background: var(--title-gradient);
+    background-clip: text;
+    color: transparent;
+}
